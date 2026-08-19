@@ -4,7 +4,6 @@ import { useEffect } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import Swal from "sweetalert2"
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "./ui/field"
 import { Input } from "./ui/input"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from "./ui/sheet"
@@ -13,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 const formSchema = z.object({
     username: z.string().min(2, { message: "Username must be at least 2 characters!" }).max(50),
-    email: z.email({ message: "Email is incorrect!" }),
+    email: z.string().email({ message: "Email is incorrect!" }),
     phone: z.string().min(10, { message: "Phone number must be at least 10 digits" }).max(15),
     location: z.string().min(2, { message: "Location is required" }),
     role: z.enum(["admin", "user", "system"], { message: "Please select a valid role" }),
@@ -45,32 +44,16 @@ const EditUser = ({ initialData, onSave }: EditUserProps) => {
     })
 
     useEffect(() => {
+
         if (initialData) {
             reset(initialData)
         }
     }, [initialData, reset])
 
     const onSubmit = async (data: FormValues) => {
-        try {
-            if (onSave) {
-                await onSave(data)
-            }
-            
-            // sweat alert
-            await Swal.fire({
-                title: "Success!",
-                text: "User details updated successfully.",
-                icon: "success",
-                confirmButtonText: "OK",
-                confirmButtonColor: "#0f172a", 
-            })
-        } catch (error) {
-            await Swal.fire({
-                title: `Error!: ${error}`,
-                text: "Failed to update user details. Please try again.",
-                icon: "error",
-                confirmButtonText: "Close",
-            })
+        console.log("Updated Data:", data)
+        if (onSave) {
+            await onSave(data)
         }
     }
 
