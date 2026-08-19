@@ -2,7 +2,7 @@
 
 Craftsman Dashboard is a modern, feature-rich admin panel built with Next.js, TypeScript, Tailwind CSS, and Shadcn UI. It features an interactive drag-and-drop calendar, location tracking with OpenStreetMap API, client-side data persistence, and a clean, responsive modular UI designed for seamless user management and project tracking.
 
-(Live Demo)](modern-dashboard-jg27elk1g-mohab-elhashems-projects.vercel.app)
+[🌐 Live Demo](https://modern-dashboard-jg27elk1g-mohab-elhashems-projects.vercel.app)
 
 ![project preview](public/preview.png)
 
