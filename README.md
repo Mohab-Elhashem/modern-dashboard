@@ -1,3 +1,46 @@
+# 🚀 Modern Dashboard
+
+Craftsman Dashboard is a modern, feature-rich admin panel built with Next.js, TypeScript, Tailwind CSS, and Shadcn UI. It features an interactive drag-and-drop calendar, location tracking with OpenStreetMap API, client-side data persistence, and a clean, responsive modular UI designed for seamless user management and project tracking.
+
+(Live Demo)](modern-dashboard-jg27elk1g-mohab-elhashems-projects.vercel.app)
+
+![project preview](public/preview.png)
+
+### 🛠 Tech Stack
+
+* **Framework:** [Next.js 16] (App Router & Server Components for fast navigation & SEO)
+* **Language:** [TypeScript] (Strict type-safety & enhanced DX)
+* **Styling & UI:** [Tailwind CSS] with [Shadcn UI] & [Radix UI] primitives
+* **Form Management & Validation:** [React Hook Form] + [Zod] via `@hookform/resolvers`
+* **Data Visualization:** [Recharts] & [Pigeon Maps]
+* **Data Tables:** [TanStack Table v9]
+* **Icons & Themes:** [Lucide React] &  (Dark/Light mode support)
+* **Utilities:** `date-fns`, `clsx`, `tailwind-merge`, `class-variance-authority`
+
+
+### ✨ Key Features
+
+* **⚡ Lightning-Fast Navigation & SSR:** Leverages **Next.js Server Components** and optimized routing to deliver high-performance page loads and smooth client-side transitions.
+* **🛡️ End-to-End Type Safety:** Fully typed codebase with **TypeScript** to prevent runtime errors and ensure reliable data structures across components.
+* **🎨 Modern Responsive UI & Theme Switcher:** Styled with **Tailwind CSS** and **Shadcn UI** for a sleek design, complete with seamless **Dark/Light mode** switching powered by `next-themes`.
+* **📋 Robust Form Validation:** Seamless form state handling using **React Hook Form** paired with strict schema validation using **Zod**.
+* **📊 Interactive Analytics & Charts:** Visualizes complex data trends effortlessly using **Recharts**.
+* **🗺️ Interactive Map Integration:** Embeds light, responsive mapping directly into the dashboard via **Pigeon Maps**.
+* **📈 Dynamic & Sortable Data Tables:** Complex data display with sorting, filtering, and pagination support using **TanStack React Table**.
+* **📅 Date Pickers & Management:** User-friendly date range selection powered by **React Day Picker** and formatted seamlessly with **Date-fns**.
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
