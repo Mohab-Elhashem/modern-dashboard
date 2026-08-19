@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import Swal from "sweetalert2"
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "./ui/field"
 import { Input } from "./ui/input"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from "./ui/sheet"
@@ -44,16 +45,32 @@ const EditUser = ({ initialData, onSave }: EditUserProps) => {
     })
 
     useEffect(() => {
-
         if (initialData) {
             reset(initialData)
         }
     }, [initialData, reset])
 
     const onSubmit = async (data: FormValues) => {
-        console.log("Updated Data:", data)
-        if (onSave) {
-            await onSave(data)
+        try {
+            if (onSave) {
+                await onSave(data)
+            }
+            
+            // sweat alert
+            await Swal.fire({
+                title: "Success!",
+                text: "User details updated successfully.",
+                icon: "success",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#0f172a", 
+            })
+        } catch (error) {
+            await Swal.fire({
+                title: `Error!: ${error}`,
+                text: "Failed to update user details. Please try again.",
+                icon: "error",
+                confirmButtonText: "Close",
+            })
         }
     }
 
