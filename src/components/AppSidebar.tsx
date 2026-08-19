@@ -5,7 +5,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import {Sidebar,SidebarContent,SidebarFooter,SidebarGroup,SidebarGroupAction,SidebarGroupContent,SidebarGroupLabel,SidebarHeader,SidebarMenu,
-SidebarMenuBadge,SidebarMenuButton,SidebarMenuItem,SidebarMenuSub,SidebarMenuSubButton,SidebarMenuSubItem,SidebarSeparator,} from "./ui/sidebar"
+SidebarMenuBadge,SidebarMenuButton,SidebarMenuItem,SidebarMenuSub,SidebarMenuSubButton,SidebarMenuSubItem,SidebarSeparator,
+useSidebar,} from "./ui/sidebar"
 import {DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuTrigger,} from "./ui/dropdown-menu"
 import {Collapsible,CollapsibleContent,CollapsibleTrigger,} from "./ui/collapsible"
 import { cn } from "@/lib/utils"
@@ -21,6 +22,13 @@ const items = [
 
 const AppSidebar = () => {
     const pathname = usePathname()
+    // close sidebar at mobil
+    const { isMobile, setOpenMobile } = useSidebar()
+    const handleLinkClick = () => {
+        if (isMobile) {
+            setOpenMobile(false)
+        }
+    }
 
     return (
         <div>
@@ -63,7 +71,7 @@ const AppSidebar = () => {
                                                     "data-[active=true]:bg-sky-500/15 data-[active=true]:text-sky-400 data-[active=true]:font-semibold"
                                                 )}
                                             >
-                                                <Link href={item.url}>
+                                                <Link href={item.url} onClick={handleLinkClick}>
                                                     <item.icon />
                                                     <span>{item.title}</span>
                                                 </Link>
