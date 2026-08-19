@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 const formSchema = z.object({
     username: z.string().min(2, { message: "Username must be at least 2 characters!" }).max(50),
-    email: z.string().email({ message: "Email is incorrect!" }),
+    email: z.email({ message: "Email is incorrect!" }),
     phone: z.string().min(10, { message: "Phone number must be at least 10 digits" }).max(15),
     location: z.string().min(2, { message: "Location is required" }),
     role: z.enum(["admin", "user", "system"], { message: "Please select a valid role" }),
