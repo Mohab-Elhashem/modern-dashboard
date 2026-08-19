@@ -134,7 +134,7 @@ export function DataTable<TData extends RowData>({
                     </TableBody>
                 </Table>
             </div>
-            <div className="flex justify-between items-center pt-5">
+            <div className="flex justify-between items-center pt-5 overflow-hidden flex-wrap">
                 <div className="text-sm text-muted-foreground">
                     {table.getFilteredSelectedRowModel().rows.length} of{" "}
                     {table.getFilteredRowModel().rows.length} row(s) selected.
