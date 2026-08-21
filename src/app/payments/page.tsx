@@ -262,7 +262,7 @@ export default async function DemoPage() {
     const data = await getData()
 
     return (
-        <div className="container mx-auto p-5 bg-primary-foreground rounded-md">
+        <div className="mx-auto p-5 bg-primary-foreground rounded-md">
             <DataTable columns={columns} data={data} />
         </div>
     )

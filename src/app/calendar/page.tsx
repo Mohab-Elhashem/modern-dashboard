@@ -166,7 +166,7 @@ export default function CustomCalendarPage() {
 
     return (
         <div className="min-h-screen p-6 font-sans select-none">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
+            <div className="mx-auto flex flex-col lg:flex-row gap-6">
                 {/* Sidebar Notes */}
                 <Card className="w-full lg:w-80 bg-primary-foreground p-6 rounded-2xl flex flex-col">
                     <h2 className="text-xl font-semibold mb-1 border-b pb-3">

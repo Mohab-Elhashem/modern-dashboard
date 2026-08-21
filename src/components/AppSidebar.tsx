@@ -1,14 +1,16 @@
 "use client"
 
-import {Calendar,ChevronDown,ChevronUp,CircleDollarSign,Home,MapPinSearch,Plus,Projector,Settings,User,User2,} from "lucide-react"
+import { Calendar, ChevronDown, ChevronUp, CircleDollarSign, Home, MapPinSearch, Plus, Projector, Settings, User, User2, } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import {Sidebar,SidebarContent,SidebarFooter,SidebarGroup,SidebarGroupAction,SidebarGroupContent,SidebarGroupLabel,SidebarHeader,SidebarMenu,
-SidebarMenuBadge,SidebarMenuButton,SidebarMenuItem,SidebarMenuSub,SidebarMenuSubButton,SidebarMenuSubItem,SidebarSeparator,
-useSidebar,} from "./ui/sidebar"
-import {DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuTrigger,} from "./ui/dropdown-menu"
-import {Collapsible,CollapsibleContent,CollapsibleTrigger,} from "./ui/collapsible"
+import {
+    Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu,
+    SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator,
+    useSidebar,
+} from "./ui/sidebar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "./ui/dropdown-menu"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger, } from "./ui/collapsible"
 import { cn } from "@/lib/utils"
 
 const items = [
@@ -17,7 +19,7 @@ const items = [
     { title: "Payments", url: "/payments", icon: CircleDollarSign },
     { title: "Calendar", url: "/calendar", icon: Calendar },
     { title: "Maps", url: "/maps", icon: MapPinSearch },
-    { title: "Settings", url: "#", icon: Settings },
+    { title: "Settings", url: "/setting", icon: Settings },
 ]
 
 const AppSidebar = () => {
@@ -89,86 +91,74 @@ const AppSidebar = () => {
 
                     {/* Projects Group */}
                     <SidebarGroup>
-                        <SidebarGroupLabel>Projects</SidebarGroupLabel>
-                        <SidebarGroupAction>
-                            <Plus /> <span className="sr-only">Add Project</span>
-                        </SidebarGroupAction>
                         <SidebarGroupContent>
-                            <SidebarMenu>
-                                <SidebarMenuItem>
-                                    <SidebarMenuButton asChild>
-                                        <Link href="#">
-                                            <Projector />
-                                            <span>See All Projects</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            </SidebarMenu>
-                        </SidebarGroupContent>
-                    </SidebarGroup>
 
-                    {/* Collapsible Group */}
-                    <Collapsible defaultOpen className="group/collapsible">
-                        <SidebarGroup>
-                            <SidebarGroupLabel asChild>
-                                <CollapsibleTrigger className="flex w-full items-center justify-between">
-                                    <span>Collapse</span>
-                                    <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                                </CollapsibleTrigger>
-                            </SidebarGroupLabel>
-                            <CollapsibleContent>
+                            {/* Collapsible Group */}
+                            <Collapsible defaultOpen className="group/collapsible">
+                                <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+                                    <SidebarGroupLabel asChild>
+                                        <CollapsibleTrigger className="flex w-full items-center justify-between">
+                                            <span>Collapse</span>
+                                            <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                                        </CollapsibleTrigger>
+                                    </SidebarGroupLabel>
+                                    <CollapsibleContent>
+                                        <SidebarGroupContent>
+                                            <SidebarMenu>
+                                                <SidebarMenuItem>
+                                                    <SidebarMenuButton asChild>
+                                                        <Link href="#">
+                                                            <Projector />
+                                                            <span>collapse 1</span>
+                                                        </Link>
+                                                    </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                                <SidebarMenuItem>
+                                                    <SidebarMenuButton asChild>
+                                                        <Link href="#">
+                                                            <Projector />
+                                                            <span>collapse 2</span>
+                                                        </Link>
+                                                    </SidebarMenuButton>
+                                                </SidebarMenuItem>
+                                            </SidebarMenu>
+                                        </SidebarGroupContent>
+                                    </CollapsibleContent>
+                                </SidebarGroup>
+                            </Collapsible>
+
+                            {/* Sub Menu Group */}
+                            <SidebarGroup>
+                                <SidebarGroupLabel>Sidebar Sub Menu</SidebarGroupLabel>
                                 <SidebarGroupContent>
                                     <SidebarMenu>
                                         <SidebarMenuItem>
-                                            <SidebarMenuButton asChild>
-                                                <Link href="#">
-                                                    <Projector />
-                                                    <span>See All Projects</span>
-                                                </Link>
-                                            </SidebarMenuButton>
+                                            <SidebarMenuSub>
+                                                <SidebarMenuSubItem>
+                                                    <SidebarMenuSubButton asChild>
+                                                        <Link href="#">
+                                                            <Plus />
+                                                            <span>Add Project</span>
+                                                        </Link>
+                                                    </SidebarMenuSubButton>
+                                                </SidebarMenuSubItem>
+
+                                                <SidebarMenuSubItem>
+                                                    <SidebarMenuSubButton asChild>
+                                                        <Link href="#">
+                                                            <Plus />
+                                                            <span>Add Category</span>
+                                                        </Link>
+                                                    </SidebarMenuSubButton>
+                                                </SidebarMenuSubItem>
+                                            </SidebarMenuSub>
                                         </SidebarMenuItem>
                                     </SidebarMenu>
                                 </SidebarGroupContent>
-                            </CollapsibleContent>
-                        </SidebarGroup>
-                    </Collapsible>
-
-                    {/* Sub Menu Group */}
-                    <SidebarGroup>
-                        <SidebarGroupLabel>Sidebar Sub Menu</SidebarGroupLabel>
-                        <SidebarGroupContent>
-                            <SidebarMenu>
-                                <SidebarMenuItem>
-                                    <SidebarMenuButton asChild>
-                                        <Link href="#">
-                                            <span>See All Sub Items</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                    <SidebarMenuSub>
-                                        <SidebarMenuSubItem>
-                                            <SidebarMenuSubButton asChild>
-                                                <Link href="#">
-                                                    <Plus />
-                                                    <span>Add Project</span>
-                                                </Link>
-                                            </SidebarMenuSubButton>
-                                        </SidebarMenuSubItem>
-
-                                        <SidebarMenuSubItem>
-                                            <SidebarMenuSubButton asChild>
-                                                <Link href="#">
-                                                    <Plus />
-                                                    <span>Add Category</span>
-                                                </Link>
-                                            </SidebarMenuSubButton>
-                                        </SidebarMenuSubItem>
-                                    </SidebarMenuSub>
-                                </SidebarMenuItem>
-                            </SidebarMenu>
+                            </SidebarGroup>
                         </SidebarGroupContent>
                     </SidebarGroup>
                 </SidebarContent>
-
                 {/* Footer User Dropdown */}
                 <SidebarFooter>
                     <SidebarMenu>
